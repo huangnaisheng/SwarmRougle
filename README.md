@@ -4,25 +4,43 @@
 
 ## 技术栈
 
-### 引擎与语言
+| 分类 | 技术/模块 | 项目用途 |
+| --- | --- | --- |
+| 游戏引擎 | Unreal Engine 5.4 | 项目运行时、编辑器和构建流程 |
+| 编程语言 | C++ | 核心玩法、角色、敌人和游戏状态逻辑 |
+| 输入 | Enhanced Input | 玩家输入映射和控制响应 |
+| 角色能力 | Gameplay Ability System | 属性、技能、效果和能力系统 |
+| 标签与任务 | Gameplay Tags / Gameplay Tasks | 游戏状态标记和异步任务编排 |
+| UI | UMG | HUD 和运行时界面 |
+| 数据 | Data Registry | 游戏数据的统一注册与读取 |
+| 网络 | NetCore | 网络相关基础支持 |
+| 动画插件 | SPCR Joint Dynamics | 关节动力学和骨骼物理效果 |
+| 编辑器插件 | SwitchLanguage | Unreal Editor 界面语言切换 |
+| 开发工具 | Visual Studio / `.sln` | C++ 编译、调试和项目管理 |
 
-![Unreal Engine 5.4](https://img.shields.io/badge/Unreal%20Engine-5.4-0E1128?logo=unrealengine&logoColor=white)
-![C++](https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus&logoColor=white)
-![Visual Studio](https://img.shields.io/badge/IDE-Visual%20Studio-5C2D91?logo=visualstudio&logoColor=white)
+### 技术架构图
 
-### Unreal Engine 模块
+```mermaid
+flowchart TD
+    UE[Unreal Engine 5.4]
+    CORE[SwarmRogue C++ 模块]
+    INPUT[Enhanced Input]
+    GAS[Gameplay Ability System]
+    DATA[Gameplay Tags / Data Registry]
+    UI[UMG HUD]
+    NET[NetCore]
+    ANIM[SPCR Joint Dynamics]
+    EDITOR[SwitchLanguage Editor Plugin]
 
-![Gameplay Ability System](https://img.shields.io/badge/Gameplay%20Ability%20System-GAS-7B42BC?logo=unrealengine&logoColor=white)
-![Enhanced Input](https://img.shields.io/badge/Enhanced%20Input-Input-2E7D32?logo=unrealengine&logoColor=white)
-![UMG](https://img.shields.io/badge/UMG-UI-1565C0?logo=unrealengine&logoColor=white)
-![Gameplay Tags](https://img.shields.io/badge/Gameplay%20Tags-Data-00897B?logo=unrealengine&logoColor=white)
-![Data Registry](https://img.shields.io/badge/Data%20Registry-Data-6D4C41?logo=unrealengine&logoColor=white)
-![NetCore](https://img.shields.io/badge/NetCore-Networking-D84315?logo=unrealengine&logoColor=white)
-
-### 项目插件
-
-![SPCR Joint Dynamics](https://img.shields.io/badge/SPCR%20Joint%20Dynamics-Animation-8E24AA?logo=unrealengine&logoColor=white)
-![SwitchLanguage](https://img.shields.io/badge/SwitchLanguage-Editor-546E7A?logo=unrealengine&logoColor=white)
+    UE --> CORE
+    CORE --> INPUT
+    CORE --> GAS
+    GAS --> DATA
+    CORE --> UI
+    CORE --> NET
+    CORE --> ANIM
+    UE --> EDITOR
+```
 
 ## 目录
 
