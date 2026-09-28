@@ -1,65 +1,106 @@
 # SwarmRogue
 
-基于 Unreal Engine 5.4 和 C++ 开发的群体生存类游戏项目。
+An Unreal Engine 5.4 C++ project for a swarm-based survival game.
 
-## 技术栈
+[![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.4-0E1128?logo=unrealengine&logoColor=white)](https://www.unrealengine.com/)
+[![C++](https://img.shields.io/badge/C%2B%2B-Game%20Code-00599C?logo=cplusplus&logoColor=white)](https://isocpp.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-| 分类 | 技术/模块 | 项目用途 |
+## Overview
+
+SwarmRogue is a C++ gameplay project built around Unreal Engine's gameplay framework. The codebase contains the runtime module, gameplay state and character systems, swarm-related logic, configuration, and the source for the project plugins.
+
+The repository intentionally excludes Unreal asset files and generated build data. This keeps the source repository small and makes the boundary between code and separately managed game content explicit.
+
+## Technology Stack
+
+| Area | Technology | Role |
 | --- | --- | --- |
-| 游戏引擎 | Unreal Engine 5.4 | 项目运行时、编辑器和构建流程 |
-| 编程语言 | C++ | 核心玩法、角色、敌人和游戏状态逻辑 |
-| 输入 | Enhanced Input | 玩家输入映射和控制响应 |
-| 角色能力 | Gameplay Ability System | 属性、技能、效果和能力系统 |
-| 标签与任务 | Gameplay Tags / Gameplay Tasks | 游戏状态标记和异步任务编排 |
-| UI | UMG | HUD 和运行时界面 |
-| 数据 | Data Registry | 游戏数据的统一注册与读取 |
-| 网络 | NetCore | 网络相关基础支持 |
-| 动画插件 | SPCR Joint Dynamics | 关节动力学和骨骼物理效果 |
-| 编辑器插件 | SwitchLanguage | Unreal Editor 界面语言切换 |
-| 开发工具 | Visual Studio / `.sln` | C++ 编译、调试和项目管理 |
+| Engine | Unreal Engine 5.4 | Runtime, editor, and build pipeline |
+| Language | C++ | Gameplay and runtime systems |
+| Abilities | Gameplay Ability System | Attributes, abilities, effects, and gameplay tasks |
+| Input | Enhanced Input | Input actions and player controls |
+| UI | UMG | HUD and runtime widgets |
+| Gameplay data | Gameplay Tags, Data Registry | Typed gameplay state and data lookup |
+| Networking | NetCore | Networking support used by the runtime module |
+| Animation | SPCR Joint Dynamics | Joint and bone dynamics |
+| Editor | SwitchLanguage | Editor language switching |
+| Toolchain | Visual Studio, Unreal Build Tool | C++ compilation and debugging |
 
-### 技术架构图
+## Architecture
 
 ```mermaid
 flowchart TD
-    UE[Unreal Engine 5.4]
-    CORE[SwarmRogue C++ 模块]
-    INPUT[Enhanced Input]
-    GAS[Gameplay Ability System]
-    DATA[Gameplay Tags / Data Registry]
+    Engine[Unreal Engine 5.4]
+    Runtime[SwarmRogue Runtime Module]
+    Abilities[Gameplay Ability System]
+    Data[Gameplay Tags and Data Registry]
+    Input[Enhanced Input]
     UI[UMG HUD]
-    NET[NetCore]
-    ANIM[SPCR Joint Dynamics]
-    EDITOR[SwitchLanguage Editor Plugin]
+    Network[NetCore]
+    Animation[SPCR Joint Dynamics]
+    Editor[SwitchLanguage Editor Plugin]
 
-    UE --> CORE
-    CORE --> INPUT
-    CORE --> GAS
-    GAS --> DATA
-    CORE --> UI
-    CORE --> NET
-    CORE --> ANIM
-    UE --> EDITOR
+    Engine --> Runtime
+    Runtime --> Abilities
+    Abilities --> Data
+    Runtime --> Input
+    Runtime --> UI
+    Runtime --> Network
+    Runtime --> Animation
+    Engine --> Editor
 ```
 
-## 目录
+## Repository Layout
 
-- `Source/`：游戏 C++ 模块和运行时逻辑
-- `Config/`：项目、输入、Gameplay Tags 和编辑器配置
-- `Plugins/`：项目使用的插件源码及插件描述文件
-- `SwarmRogue.uproject`：Unreal Engine 项目文件
+```text
+Config/                            Project and gameplay configuration
+Plugins/                           Plugin source and descriptors
+Source/SwarmRogue/                 Runtime C++ module
+Source/SwarmRogueEditor.Target.cs  Editor target definition
+SwarmRogue.uproject                Unreal project descriptor
+```
 
-## 开发环境
+## Requirements
 
-1. 安装 Unreal Engine 5.4。
-2. 克隆仓库并右键 `SwarmRogue.uproject`，选择生成 Visual Studio 项目文件。
-3. 使用 Visual Studio 打开生成的解决方案并编译 `Development Editor`。
-4. 在 Unreal Editor 中打开项目。
+- Windows 10 or later
+- Unreal Engine 5.4
+- Visual Studio 2022 with **Game development with C++** installed
+- Git
 
-## 资产说明
+## Getting Started
 
-为保持仓库体积小于 10 MB，项目的 `Content/` 目录、构建产物和编辑器缓存不会提交到 Git。完整运行项目需要另外获取对应的美术资产。
+1. Clone the repository:
 
-## 许可证
+   ```bash
+   git clone https://github.com/huangnaisheng/SwarmRougle.git
+   cd SwarmRogue
+   ```
 
-当前仓库未声明开源许可证。
+2. Install Unreal Engine 5.4 and the required Visual Studio workload.
+3. Right-click `SwarmRogue.uproject` and choose **Generate Visual Studio project files**.
+4. Open the generated solution in Visual Studio.
+5. Select `Development Editor` and `Win64`, then build the `SwarmRogueEditor` target.
+6. Open `SwarmRogue.uproject` in Unreal Editor.
+
+## Content and Generated Files
+
+The following are intentionally excluded from Git:
+
+- `Content/` and Unreal asset files such as `.uasset` and `.umap`
+- `Binaries/`, `Intermediate/`, `Saved/`, and `DerivedDataCache/`
+- IDE metadata and packaged build output
+
+The project cannot be reproduced as a complete playable build from this repository alone. The matching game content must be provided separately.
+
+## Third-Party Plugins
+
+The repository includes source code for `SPCRJointDynamics` and `SwitchLanguage`. Their upstream terms and licenses remain applicable to those components. See each plugin descriptor and source distribution for details.
+
+## Contributing
+
+Keep generated Unreal files and local assets out of commits. Submit focused changes with a clear commit message and verify that the project still compiles in Unreal Engine 5.4.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for the full text.
