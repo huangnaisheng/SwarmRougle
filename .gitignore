@@ -1,0 +1,93 @@
+# Unreal Engine generated files
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Large project assets (stored separately)
+Content/
+*.uasset
+*.umap
+*.fbx
+*.obj
+*.blend
+*.wav
+*.mp3
+*.ogg
+*.mp4
+*.mov
+*.avi
+*.png
+*.jpg
+*.jpeg
+*.tga
+*.exr
+
+# Optional editor-only plugin source and generated plugin data
+Plugins/Developer/
+Plugins/*/Binaries/
+Plugins/*/Intermediate/
+Plugins/*/Saved/
+Plugins/*/DerivedDataCache/
+
+# Build and packaging output
+Build/
+StagedBuilds/
+
+# IDE and editor metadata
+.vs/
+.vscode/
+.idea/
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+*.opensdf
+*.sdf
+*.xcodeproj/
+*.xcworkspace/
+
+# Generated project files
+*.generated.h
+*.gen.cpp
+
+# Compiled binaries and symbols
+*.dll
+*.exe
+*.app
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.o
+*.a
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.uasset.tmp
+*.umap.tmp
+
+# Archives and packaged builds
+*.pak
+*.zip
+*.7z
+*.rar
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local-only Unreal configuration
+Config/Local/
+Config/Windows/
+Config/Mac/
+Config/Linux/
+Config/Android/
+Config/IOS/
