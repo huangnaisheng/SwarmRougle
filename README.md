@@ -1,6 +1,6 @@
 # SwarmRogue
 
-An Unreal Engine 5.4 C++ project for a swarm-based survival game.
+An Unreal Engine 5.4 C++ project for a networked swarm-survival game.
 
 [![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.4-0E1128?logo=unrealengine&logoColor=white)](https://www.unrealengine.com/)
 [![C++](https://img.shields.io/badge/C%2B%2B-Game%20Code-00599C?logo=cplusplus&logoColor=white)](https://isocpp.org/)
@@ -8,53 +8,19 @@ An Unreal Engine 5.4 C++ project for a swarm-based survival game.
 
 ## Overview
 
-SwarmRogue is a C++ gameplay project built around Unreal Engine's gameplay framework. The codebase contains the runtime module, gameplay state and character systems, swarm-related logic, configuration, and the source for the project plugins.
+SwarmRogue is a C++ gameplay project built around Unreal Engine's gameplay framework. It combines Gameplay Ability System (GAS), replicated player state, server-authoritative gameplay, and a pooled spatial-hash swarm subsystem for large enemy populations.
 
 The repository intentionally excludes Unreal asset files and generated build data. This keeps the source repository small and makes the boundary between code and separately managed game content explicit.
 
-## Technology Stack
+## Documentation
 
-| Area | Technology | Role |
-| --- | --- | --- |
-| Engine | Unreal Engine 5.4 | Runtime, editor, and build pipeline |
-| Language | C++ | Gameplay and runtime systems |
-| Abilities | Gameplay Ability System | Attributes, abilities, effects, and gameplay tasks |
-| Input | Enhanced Input | Input actions and player controls |
-| UI | UMG | HUD and runtime widgets |
-| Gameplay data | Gameplay Tags, Data Registry | Typed gameplay state and data lookup |
-| Networking | NetCore | Networking support used by the runtime module |
-| Animation | SPCR Joint Dynamics | Joint and bone dynamics |
-| Editor | SwitchLanguage | Editor language switching |
-| Toolchain | Visual Studio, Unreal Build Tool | C++ compilation and debugging |
-
-## Architecture
-
-```mermaid
-flowchart TD
-    Engine[Unreal Engine 5.4]
-    Runtime[SwarmRogue Runtime Module]
-    Abilities[Gameplay Ability System]
-    Data[Gameplay Tags and Data Registry]
-    Input[Enhanced Input]
-    UI[UMG HUD]
-    Network[NetCore]
-    Animation[SPCR Joint Dynamics]
-    Editor[SwitchLanguage Editor Plugin]
-
-    Engine --> Runtime
-    Runtime --> Abilities
-    Abilities --> Data
-    Runtime --> Input
-    Runtime --> UI
-    Runtime --> Network
-    Runtime --> Animation
-    Engine --> Editor
-```
+The detailed technology inventory, implementation map, networking model, performance notes, and scanned study references are maintained in [`Docs/technology-stack.md`](Docs/technology-stack.md).
 
 ## Repository Layout
 
 ```text
 Config/                            Project and gameplay configuration
+Docs/                              Architecture, technology charts, and references
 Plugins/                           Plugin source and descriptors
 Source/SwarmRogue/                 Runtime C++ module
 Source/SwarmRogueEditor.Target.cs  Editor target definition

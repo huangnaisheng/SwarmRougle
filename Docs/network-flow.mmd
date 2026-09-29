@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant Server
+    participant PlayerState
+    participant ClientController
+    participant ClientHUD
+    participant Enemy
+    participant SwarmSubsystem
+
+    Server->>PlayerState: Own ASC and replicated attributes
+    Server->>Enemy: Simulate movement, combat, pooling
+    Server->>SwarmSubsystem: Maintain grid and pools
+    SwarmSubsystem->>Enemy: Query 3x3 neighboring cells
+    PlayerState-->>ClientHUD: Replicate Health, XP, Level
+    Server->>ClientController: Client_ShowLevelUpUI()
+    ClientController->>Server: Server_ApplyUpgrade(UpgradeID)
+    Server->>PlayerState: Validate and apply GameplayEffect
+    Server-->>Enemy: Replicate pooled state and spawn location
